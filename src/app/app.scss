@@ -1,49 +1,180 @@
+/* ==========================================================================
+   HEADER Y NAVBAR FIJO TRANSLÚCIDO
+   ========================================================================== */
+
 .skip-link {
   position: absolute;
-  left: 0.5rem;
+  left: 1rem;
   top: -4rem;
-  padding: 0.5rem 1rem;
-  color: #fff;
-  background: var(--primary-dark);
-  z-index: 10;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #0b0f19;
+  background-color: var(--accent);
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+  text-decoration: none;
+  transition: top var(--transition-fast);
 
   &:focus {
-    top: 0.5rem;
+    top: 1rem;
   }
 }
 
 .header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 15, 25, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color var(--transition-fast);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1rem;
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: var(--text-main);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+    transition: opacity var(--transition-fast);
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.brand__symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-sm);
+}
+
+.brand__name {
+  color: var(--text-main);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__link {
+    display: inline-block;
+    padding: 0.45rem 0.85rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+
+    &:hover {
+      color: var(--text-main);
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  }
+}
+
+/* ==========================================================================
+   FOOTER EDITORIAL
+   ========================================================================== */
+
+.footer {
+  margin-top: 4rem;
+  padding-block: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-surface);
 
   &__inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 1.25rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  &__info {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  &__symbol {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    background: var(--accent-subtle);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: var(--radius-sm);
+  }
+
+  &__copy {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (NAVBAR & FOOTER)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .header__inner {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.75rem;
-    padding-block: 1rem;
   }
 
-  &__brand {
-    font-weight: 700;
-    color: var(--text);
-    text-decoration: none;
+  .nav {
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+
+    &__link {
+      padding: 0.35rem 0.5rem;
+      font-size: 0.8125rem;
+    }
   }
-}
 
-.nav {
-  display: flex;
-  gap: 1.25rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.footer {
-  margin-top: 3rem;
-  padding-block: 1.5rem;
-  color: var(--text-muted);
-  background: var(--surface);
-  border-top: 1px solid var(--border);
+  .footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
 }

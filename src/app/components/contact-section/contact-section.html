@@ -1,25 +1,106 @@
 <section id="contacto" class="section" aria-labelledby="contacto-titulo">
-  <h2 id="contacto-titulo" class="section__title">Contacto</h2>
-  <ul class="contact">
-    <li>
-      GitHub:
-      <a [href]="githubUrl" target="_blank" rel="noopener noreferrer">{{ profile.githubUser }}</a>
-    </li>
-    <li>
-      Correo:
-      @if (profile.email) {
-        <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
-      } @else {
-        <span class="pending">pendiente de completar</span>
-      }
-    </li>
-    <li>
-      LinkedIn:
-      @if (profile.linkedinUrl) {
-        <a [href]="profile.linkedinUrl" target="_blank" rel="noopener noreferrer">Perfil</a>
-      } @else {
-        <span class="pending">pendiente de completar</span>
-      }
-    </li>
-  </ul>
+  <div class="section-header">
+    <span class="section-kicker">05 // CONEXIÓN</span>
+    <h2 id="contacto-titulo" class="section-title">Contacto Profesional</h2>
+    <p class="section-lead">
+      Disponible para nuevas oportunidades, consultas sobre arquitectura de software y
+      colaboraciones de ingeniería.
+    </p>
+  </div>
+
+  <div class="contact-card">
+    <ul class="contact-list">
+      <li class="contact-item">
+        <span class="contact-item__label">GitHub</span>
+        <a
+          class="contact-item__link"
+          [href]="githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Perfil de GitHub de JSebasAM (abre en nueva pestaña)"
+        >
+          {{ profile.githubUser }}
+          <svg
+            class="contact-item__icon"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </li>
+
+      <li class="contact-item">
+        <span class="contact-item__label">Correo</span>
+        @if (profile.email) {
+          <a
+            class="contact-item__link"
+            [href]="'mailto:' + profile.email"
+            aria-label="Enviar correo electrónico a Sebastián"
+          >
+            {{ profile.email }}
+            <svg
+              class="contact-item__icon"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        } @else {
+          <span class="pending">pendiente de completar</span>
+        }
+      </li>
+
+      <li class="contact-item">
+        <span class="contact-item__label">LinkedIn</span>
+        @if (profile.linkedinUrl) {
+          <a
+            class="contact-item__link"
+            [href]="profile.linkedinUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Perfil de LinkedIn de Sebastián (abre en nueva pestaña)"
+          >
+            Perfil Profesional
+            <svg
+              class="contact-item__icon"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        } @else {
+          <span class="pending">pendiente de completar</span>
+        }
+      </li>
+    </ul>
+  </div>
 </section>
