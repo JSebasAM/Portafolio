@@ -1,0 +1,25 @@
+<section id="contacto" class="section" aria-labelledby="contacto-titulo">
+  <h2 id="contacto-titulo" class="section__title">Contacto</h2>
+  <ul class="contact">
+    <li>
+      GitHub:
+      <a [href]="githubUrl" target="_blank" rel="noopener noreferrer">{{ profile.githubUser }}</a>
+    </li>
+    <li>
+      Correo:
+      @if (profile.email) {
+        <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      } @else {
+        <span class="pending">pendiente de completar</span>
+      }
+    </li>
+    <li>
+      LinkedIn:
+      @if (profile.linkedinUrl) {
+        <a [href]="profile.linkedinUrl" target="_blank" rel="noopener noreferrer">Perfil</a>
+      } @else {
+        <span class="pending">pendiente de completar</span>
+      }
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,48 @@
+<section id="perfil" class="section" aria-labelledby="perfil-titulo">
+  <h2 id="perfil-titulo" class="section__title">Perfil profesional</h2>
+
+  <p class="lead">
+    Hola, soy <strong>{{ profile.nombre }}</strong>, estudiante de Arquitectura de Software (UCEVA).
+  </p>
+
+  @if (profile.bio) {
+    <p>{{ profile.bio }}</p>
+  } @else {
+    <p class="pending">Presentación pendiente de completar.</p>
+  }
+
+  <div class="columns">
+    <div>
+      <h3>Habilidades</h3>
+      @if (profile.habilidades.length > 0) {
+        <ul class="chips">
+          @for (item of profile.habilidades; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      } @else {
+        <p class="pending">Pendiente de completar.</p>
+      }
+    </div>
+    <div>
+      <h3>Lenguajes</h3>
+      @if (profile.lenguajes.length > 0) {
+        <ul class="chips">
+          @for (item of profile.lenguajes; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      } @else {
+        <p class="pending">Pendiente de completar.</p>
+      }
+    </div>
+    <div>
+      <h3>Tecnologías</h3>
+      <ul class="chips">
+        @for (item of technologies(); track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
