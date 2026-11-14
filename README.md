@@ -1,59 +1,59 @@
-# Portfolio
+# Portafolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.43.
+[![Deploy to GitHub Pages](https://github.com/JSebasAM/Portafolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/JSebasAM/Portafolio/actions/workflows/deploy.yml)
 
-## Development server
+Portafolio digital de **José Sebastián Arenas Moncada** (Arquitectura de Software, UCEVA). Presenta el perfil profesional, un catálogo de 5 proyectos y los datos de contacto. Cada proyecto tiene su propio repositorio, pipeline de GitHub Actions y despliegue en GitHub Pages.
 
-To start a local development server, run:
+**Demo:** https://JSebasAM.github.io/Portafolio/
 
-```bash
-ng serve
-```
+> Captura de pantalla: pendiente de agregar en `docs/screenshot.png` (`![Captura](docs/screenshot.png)`).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologías
 
-## Code scaffolding
+- Angular 20 (componentes standalone, signals)
+- Routing con `HashLocationStrategy` (compatible con GitHub Pages)
+- SCSS propio, sin librerías de UI
+- Karma + Jasmine (ChromeHeadless)
+- ESLint (`angular-eslint`) y Prettier
+- GitHub Actions + GitHub Pages
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalación
 
 ```bash
-ng generate --help
+npm ci
+npm start
 ```
 
-## Building
+## Scripts
 
-To build the project run:
+| Script                 | Descripción                       |
+| ---------------------- | --------------------------------- |
+| `npm start`            | Servidor de desarrollo            |
+| `npm run build`        | Build de producción               |
+| `npm test`             | Pruebas unitarias (headless)      |
+| `npm run lint`         | ESLint                            |
+| `npm run format`       | Prettier (escribe cambios)        |
+| `npm run format:check` | Prettier (solo verifica, para CI) |
 
-```bash
-ng build
+## Estructura
+
+```
+src/app/
+├── components/   # project-card, project-catalog, profile-section, contact-section
+├── data/         # projects.data.ts (catálogo) y profile.data.ts (perfil)
+├── models/       # Interfaces Project y Profile
+└── pages/        # home
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Agregar o editar proyectos y perfil
 
-## Running unit tests
+- Proyectos: edita [`src/app/data/projects.data.ts`](src/app/data/projects.data.ts).
+- Bio, habilidades, lenguajes, tecnologías y contacto: edita [`src/app/data/profile.data.ts`](src/app/data/profile.data.ts). Los campos vacíos se muestran como "pendiente de completar".
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Pipeline
 
-```bash
-ng test
-```
+[`deploy.yml`](.github/workflows/deploy.yml) corre en cada push a `master` o manualmente: **build** (lint, formato, pruebas y build con `--base-href "/Portafolio/"`), **deploy** y **verify** (`curl` con reintentos que exige HTTP 200 y `<app-root`).
 
-## Running end-to-end tests
+## Contribuir
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Usa [Conventional Commits](CONTRIBUTING.md).
