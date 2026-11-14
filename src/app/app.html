@@ -1,22 +1,54 @@
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
+<!-- 1. NAVBAR FIJO TRANSLÚCIDO -->
 <header class="header">
   <div class="container header__inner">
-    <a class="header__brand" routerLink="/">{{ nombre }}</a>
-    <nav aria-label="Principal">
+    <a
+      class="header__brand"
+      routerLink="/"
+      fragment="inicio"
+      aria-label="Ir al inicio - José Sebastián Arenas Moncada"
+    >
+      <span class="brand__symbol" aria-hidden="true">&lt;JS /&gt;</span>
+      <span class="brand__name">{{ nombre }}</span>
+    </a>
+
+    <nav aria-label="Navegación principal">
       <ul class="nav">
-        <li><a routerLink="/" fragment="perfil">Perfil</a></li>
-        <li><a routerLink="/" fragment="proyectos">Proyectos</a></li>
-        <li><a routerLink="/" fragment="contacto">Contacto</a></li>
+        <li>
+          <a routerLink="/" fragment="inicio" class="nav__link">Inicio</a>
+        </li>
+        <li>
+          <a routerLink="/" fragment="sobre-mi" class="nav__link">Sobre mí</a>
+        </li>
+        <li>
+          <a routerLink="/" fragment="habilidades" class="nav__link">Habilidades</a>
+        </li>
+        <li>
+          <a routerLink="/" fragment="lenguajes" class="nav__link">Lenguajes</a>
+        </li>
+        <li>
+          <a routerLink="/" fragment="proyectos" class="nav__link">Proyectos</a>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
+<!-- CONTENIDO PRINCIPAL -->
 <main id="contenido" class="container" tabindex="-1">
   <router-outlet />
 </main>
 
+<!-- PIE DE PÁGINA EDITORIAL -->
 <footer class="footer">
-  <div class="container">&copy; {{ year }} {{ nombre }}</div>
+  <div class="container footer__inner">
+    <div class="footer__info">
+      <span class="footer__symbol" aria-hidden="true">&lt;JS /&gt;</span>
+      <span class="footer__text">
+        <strong>{{ nombre }}</strong> · Portafolio de Arquitectura de Software
+      </span>
+    </div>
+    <div class="footer__copy">&copy; {{ year }} · Minimalismo Técnico &amp; Clean Architecture</div>
+  </div>
 </footer>
