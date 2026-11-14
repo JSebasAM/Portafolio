@@ -1,0 +1,10 @@
+<section id="proyectos" class="section" aria-labelledby="proyectos-titulo">
+  <h2 id="proyectos-titulo" class="section__title">Catálogo de proyectos</h2>
+  <ul class="grid">
+    @for (project of projects; track project.nombre) {
+      <li class="grid__item">
+        <app-project-card [project]="project" />
+      </li>
+    }
+  </ul>
+</section>
